@@ -1,0 +1,43 @@
+/* Estilo para el div */
+.terapias {
+    border: 1px solid #ccc; /* Borde gris claro */
+    padding: 20px; /* Espaciado interno */
+    margin: 20px; /* Margen externo */
+    text-align: center; /* Centrar el texto */
+}
+
+.contenedor-imagenes-terapias {
+    display: flex; /* Utiliza flexbox para alinear las imágenes */
+    flex-wrap: wrap; /* Permite que las imágenes se ajusten a varias líneas */
+    justify-content: flex-start; /* Alinea las imágenes al inicio */
+    max-width: 900px; /* Ajusta el ancho máximo según sea necesario */
+    margin: 0 auto; /* Centra el contenedor de imágenes */
+    gap: 15px; /* Espacio entre las imágenes */
+}
+
+.img-terapias {
+    flex: 1 1 calc(33.33% - 10px); /* Cada imagen ocupa hasta un tercio del ancho */
+    max-width: calc(33.33% - 10px); /* Limita el ancho máximo para que quepan tres en la línea */
+    overflow: hidden; /* Asegura que cualquier parte de la imagen que se desborde se oculte */
+}
+
+.img-terapias img {
+    width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+    height: 300px; /* Ajusta la altura a un valor fijo */
+    object-fit: cover; /* Asegura que la imagen se recorte adecuadamente para llenar el contenedor */
+    border-radius: 8px; /* Esquinas redondeadas (opcional) */
+}
+
+.titulo {
+  font-family: "Concert One", sans-serif;
+  font-weight: 400;
+  font-size: 45px;
+  font-style: normal;
+}
+
+.nombre-terapia {
+  font-family: "Tenali Ramakrishna", sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+  font-style: normal;
+}

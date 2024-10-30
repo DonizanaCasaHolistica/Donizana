@@ -1,0 +1,110 @@
+<?php
+// Incluye la conexión a la base de datos
+include 'conexion.php'; 
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Donizana Flor De Luna </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Boogaloo&family=Chango&family=Concert+One&family=Dongle&family=Englebert&family=Tenali+Ramakrishna&family=Yanone+Kaffeesatz:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+<body>
+    <header class="encabezado">
+        <div class="logo">
+            <img src="logoDonizana.png" alt="Logo Flor De Luna">
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="#">Nosotros</a></li>
+                <li><a href="terapias.php">Nuestros Servicios</a></li>
+                <li><a href="#">Contáctanos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="contenedor-imagen">
+        <img src="RukaSarashina.png" alt="Descripción de la imagen">
+    </div>
+
+    <!-- Información sobre nosotros y mapa -->
+    <div class="informacion-acerca-nosotros">
+        <div class="acerca-nosotros">
+            <div class="contenedor-acerca-nosotros"> <!-- Contenedor agregado -->
+                <h2>Acerca de Nosotros</h2><br>
+                <p>Nos encontramos ubicados en Calle Tulipanes Sur #25, Ixmiquilpan, Hidalgo código postal 42302.</p><br><br>
+                <p class="objetivo">
+                    <i class="fas fa-child icono-muneco"></i> <strong> Meditación y yoga. </strong> El profesionalismo, la experiencia y la sensibilidad se conjugan para proporcionar un ambiente seguro y con contención.
+                </p><br><br>
+                <p class="objetivo">
+                <i class="fas fa-heart icono-corazon"></i> <strong> Siéntete bien contigo mismo. </strong> Donizänä florece por la iniciativa de Hikuri Zei con la intención de compartir y aplicar sus conocimientos y experiencias, expandiendo la conciencia, la comunidad y ayudando a quien desee ser ayudado con luz, paz y amor.
+                </p>
+            </div> <!-- Fin del contenedor -->
+        </div>
+
+        <div class="mapa">
+            <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.914497556344!2d-99.00293882539299!3d20.490724186051107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1a8673bde987b%3A0x259ac258da4b46b7!2sCalle%20Tulipanes%20Sur%2025%2C%20Centro%2C%2042300%20Ixmiquilpan%2C%20Hgo.%2C%20México!5e0!3m2!1ses-419!2sus!4v1698177076908!5m2!1ses-419!2sus" 
+            width="580" 
+            height="400" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"> 
+            </iframe>
+        </div>
+    </div>
+
+    <!-- Contenedor para mostrar las terapias -->
+    <div class="terapias">
+        <h1 class="titulo"> Nuestras Terapias </h1><br><br>
+        <div class="contenedor-imagenes-terapias">
+            <?php 
+            $contador = 0;
+            foreach ($terapias as $terapia): 
+            if ($contador >= 3) break; // Limita a 3 terapias
+            ?>
+            <div class="img-terapias">
+                <a href="detalle-terapia.php?id=<?php echo htmlspecialchars($terapia['id']); ?>"> <!-- Enlace a la página de detalle -->
+                    <img src="<?php echo htmlspecialchars($terapia['imagen']); ?>" alt="<?php echo htmlspecialchars($terapia['nombre']); ?>">
+                    <h2 class="nombre-terapia"><?php echo htmlspecialchars($terapia['nombre']); ?></h2>
+                </a>
+            </div>
+            <?php 
+            $contador++; // Incrementa el contador después de mostrar cada terapia
+        endforeach; 
+        ?>
+    </div><br>
+    <div class="boton-nuestras-terapias">
+        <a href="terapias.php" class="boton"> Más Terapias </a>
+    </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-contenido">
+            <div class="footer-logo">
+                <img src="logoDonizana.png" alt="Logo Flor De Luna">
+            </div>
+            <div class="footer-menu">
+                <a href="#">Inicio</a> |
+                <a href="#">Terapias</a> |
+                <a href="#">Ubicación</a> |
+                <a href="#">Contáctanos</a>
+            </div>
+            <div class="footer-contacto">
+                <p> Teléfono: 772 133 7716 </p>
+                <p> Email: zeilageorgina@gmail.com </p>
+                <p> Dirección: Calle Tulipanes Sur #25, Ixmiquilpan, Hidalgo </p>
+            </div>
+        </div>
+        <p class="footer-derechos">&copy; 2024 Donizänä Casa Holistica. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
